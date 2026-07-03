@@ -6,6 +6,9 @@
     <title>The Wedding of Rashintha & Thathsarani</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Fonts for Icons (Hamburger Menu) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Tailwind config extension -->
     <script>
         tailwind.config = {
@@ -94,21 +97,23 @@
             opacity: 0;
         }
 
-        .start-main-animations .animate-photo {
+       .start-main-animations .animate-photo {
             animation: fadeInPhoto 2.5s ease forwards;
             animation-delay: 0.6s;
         }
-        .start-main-animations .delay-first {
+
+        /* නේම්ස් වලට වෙනමම ට්‍රිගර් එකක් දෙනවා ස්ක්‍රෝල් කරද්දී වැඩ කරන්න */
+        .start-name-animations .delay-first {
             animation: fadeInLargeName 1.2s ease forwards;
-            animation-delay: 1.8s;
+            animation-delay: 0.2s;
         }
-        .start-main-animations .delay-and {
+        .start-name-animations .delay-and {
             animation: fadeInLargeName 1.2s ease forwards;
-            animation-delay: 2.4s;
+            animation-delay: 0.5s;
         }
-        .start-main-animations .delay-second {
+        .start-name-animations .delay-second {
             animation: fadeInLargeName 1.2s ease forwards;
-            animation-delay: 3.0s;
+            animation-delay: 0.8s;
         }
 
         @keyframes fadeInPhoto {
@@ -294,34 +299,48 @@
             transform: translateY(-1px);
         }
 
-        /* CORNER FLOWERS */
+        /* --- මල් වැල් දෙකේ සම්පූර්ණ CSS එක --- */
         .corner-floral {
             position: absolute;
-            width: 300px; 
+            width: 120px; /* ෆෝන් එකට සයිස් එක */
             height: auto;
             z-index: 100;
             pointer-events: none; 
             opacity: 0; 
         }
-
-        .start-main-animations .corner-floral {
-            animation: flowerFadeIn 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            animation-delay: 0.2s; 
+        @media (min-width: 768px) {
+            .corner-floral {
+                width: 300px; /* කම්පියුටර් එකට සයිස් එක */
+            }
         }
 
+        /* කොන් දෙක ලකුණු කිරීම (කලින් මේක මඟඇරුණා මචන්) */
         .left-top { top: 0; left: 0; }
         .right-top { top: 0; right: 0; }
 
+        /* බටන් එක එබුවම ඇනිමේෂන් එක ස්ටාර්ට් වීම */
+        .start-main-animations .corner-floral {
+            animation: flowerFadeIn 1.5s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        /* ඇනිමේෂන් එක ක්‍රියාත්මක වන විදිහ */
         @keyframes flowerFadeIn {
             0% { opacity: 0; transform: translateY(-40px); }
             100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* බටන් එක ඔබපු ගමන් මල් වැල් දෙක උඩ ඉඳන් පල්ලෙහාට ලස්සනට වැටෙන්න */
+        .start-main-animations .corner-floral {
+            animation: flowerFadeIn 1.5s ease forwards;
+            animation-delay: 0.4s;
         }
     </style>
 </head>
 <body class="relative overflow-x-hidden bg-[#FAF6F0]">
     <!-- කොන් දෙකට වැටෙන මල් වැල් දෙක -->
-    <img src="Left 2.png" class="corner-floral left-top" alt="floral-left">
-    <img src="Right 2.png" class="corner-floral right-top" alt="floral-right">
+    <img src="1 floral-arrangement.png" class="corner-floral left-top" alt="floral-left">
+    <img src="1 - 1 floral-arrangement.png" class="corner-floral right-top" alt="floral-right">
 
     <!-- Splash Intro Screen -->
     <div id="splashScreen">
@@ -336,36 +355,54 @@
     <div id="falling-container"></div>
 
     <!-- Audio Player -->
-    <audio id="bgMusic" loop>
-        <source src="PerituneMaterial_Sakuya.mp3" type="audio/mpeg">
+    <audio id="bgMusic" loop preload="auto">
+        <source src="leberch-invitation-wedding-375839.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Navigation Bar -->
     <nav class="w-full py-4 bg-[#f3d5b5]/90 backdrop-blur-sm sticky top-0 z-40 border-b border-gray-200 shadow-sm">
         <div class="max-w-6xl mx-auto flex justify-between items-center px-6">
-            <div class="text-2xl font-script font-bold text-black">R | T</div>
+            <div class="text-2xl font-script font-bold text-[#5B0C0B]">R | T</div>
+            
+            <!-- Desktop Menu (වැඩ කරන්නේ ලොකු ස්ක්‍රීන් වල විතරයි) -->
             <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-medium text-[#544338]">
                 <a href="#home" class="nav-link hover:text-gold transition duration-300">Home</a>
-                <a href="#story" class="nav-link hover:text-gold transition duration-300">Our Story</a>
                 <a href="#event" class="nav-link hover:text-gold transition duration-300">Event</a>
                 <a href="#venue" class="nav-link hover:text-gold transition duration-300">Venue</a>
+                <a href="#story" class="nav-link hover:text-gold transition duration-300">Our Story</a>
                 <a href="#gallery" class="nav-link hover:text-gold transition duration-300">Gallery</a>
                 <a href="#rsvp" class="nav-link hover:text-gold transition duration-300">RSVP</a>
             </div>
-            <div class="md:hidden"><i class="fas fa-bars text-xl text-gold cursor-pointer"></i></div>
+            
+            <!-- Mobile Hamburger Button (ෆෝන් එකට විතරක් පෙනෙන බටන් එක) -->
+            <div class="md:hidden">
+                <button onclick="toggleMobileMenu()" class="text-xl text-[#544338] focus:outline-none p-1">
+                    <i id="menu-icon" class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu (ෆෝන් එකෙන් බටන් එක එබුවම පාත් වෙන මෙනු එක) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#f3d5b5] border-t border-[#544338]/10 px-6 py-4 space-y-3 flex flex-col text-xs uppercase tracking-widest font-medium text-[#544338]">
+            <a href="#home" onclick="toggleMobileMenu()" class="nav-link hover:text-gold transition py-1">Home</a>
+            <a href="#event" onclick="toggleMobileMenu()" class="nav-link hover:text-gold transition py-1">Event</a>
+            <a href="#venue" onclick="toggleMobileMenu()" class="nav-link hover:text-gold transition py-1">Venue</a>
+            <a href="#story" onclick="toggleMobileMenu()" class="nav-link hover:text-gold transition py-1">Our Story</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="nav-link hover:text-gold transition py-1">Gallery</a>
+            <a href="#rsvp" onclick="toggleMobileMenu()" class="nav-link hover:text-gold transition py-1">RSVP</a>
         </div>
     </nav>
 
     <!-- Hero Layout -->
     <section id="home" class="min-h-screen max-w-6xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
         <div class="w-full md:w-1/2 flex justify-center md:justify-end animate-photo">
-            <img src="NRP07165.jpg" alt="Rashintha & Thathsarani" class="main-page-couple" style="border-radius: 300px 300px 0 0; border: 8px solid #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); object-fit: cover; width: 100%; max-width: 450px; display: block; margin: 0 auto;">
+            <img src="NRP07165.jpg" alt="Rashintha & Thathsarani" class="main-page-couple" style="border-radius: 150px 150px 0 0; border: 8px solid #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.08); object-fit: cover; width: 100%; max-width: 450px; display: block; margin: 0 auto;">
         </div>
 
         <div class="w-full md:w-1/2 text-center md:text-left space-y-6 flex flex-col items-center md:items-start">
             <p class="text-xs uppercase tracking-[0.3em] text-[#544338] font-semibold">The Wedding Of</p>
             
-            <div class="space-y-2 text-center md:text-left w-full">
+            <div id="wedding-names" class="space-y-2 text-center md:text-left w-full">
                 <h1 class="text-6xl md:text-8xl font-script text-gold fade-large delay-first">Rashintha</h1>
                 <div class="text-3xl font-script text-[#544338]/80 my-1 fade-large delay-and md:pl-12">&</div>
                 <h1 class="text-6xl md:text-8xl font-script text-gold fade-large delay-second">Thathsarani</h1>
@@ -412,7 +449,7 @@
             </div>
             <div class="bg-white/80 backdrop-blur px-4 py-3 rounded-xl min-w-[70px] md:min-w-[100px] shadow-sm">
                 <span id="minutes" class="block text-2xl md:text-4xl font-light text-[#38000A]">00</span>
-                <span class="text-[10px] uppercase tracking-widest text-[gray]-500">Minutes</span>
+                <span class="text-[10px] uppercase tracking-widest text-gray-500">Minutes</span>
             </div>
             <div class="bg-white/80 backdrop-blur px-4 py-3 rounded-xl min-w-[70px] md:min-w-[100px] shadow-sm">
                 <span id="seconds" class="block text-2xl md:text-4xl font-light text-[#38000A]">00</span>
@@ -428,7 +465,7 @@
             <div class="grid md:grid-cols-3 gap-8 items-center divide-y md:divide-y-0 md:divide-x divide-gold/20">
                 <div class="space-y-2 pb-6 md:pb-0">
                     <p class="text-xs uppercase tracking-widest text-gold font-bold">August</p>
-                    <p class="text-6xl font-bold text-gold">16</p>
+                    <p class="text-6xl font-bold text-[#CD1C18]">16</p>
                     <p class="text-sm font-medium tracking-wide">2026 • Sunday</p>
                 </div>
                 <div class="space-y-4 py-6 md:py-0 px-4">
@@ -458,15 +495,12 @@
     <section id="venue" class="max-w-4xl mx-auto px-6 py-16 text-center">
         <p class="text-xs uppercase tracking-widest text-gold font-semibold mb-2">Celebrate With Us</p>
         
-        <div class="flex flex-col items-center justify-center mb-4">
-            <img src="location-icon.png" alt="Landmark Pin" class="w-12 h-12 object-contain mb-2">
-        </div>
 
         <h2 class="text-3xl font-semibold text-[#544338] mb-6">Hotel Kashyapa, Avissawella</h2>
         <div class="rounded-3xl overflow-hidden shadow-xl mb-6 max-w-2xl mx-auto border-4 border-white h-80">
             <img src="Kashyapa.jpg" alt="Hotel Kashyapa Venue" class="w-full h-full object-cover">
         </div>
-        <p class="text-sm text-gray-900 italic mb-6">Easy to find. Hard to forget.</p>
+        <p class="text-sm text-[#CD1C18] italic mb-6">Easy to find. Hard to forget.</p>
         <a href="https://www.google.com/maps/place/Hotel+Kashyapa/@6.9206363,80.2202774,17z/data=!3m1!4b1!4m9!3m8!1s0x3ae3a9427f1a7ce3:0xa5e6a5944d8182de!5m2!4m1!1i2!8m2!3d6.920631!4d80.2228523!16s%2Fg%2F11fhzmj0r3?entry=ttu&g_ep=EgoyMDI2MDYyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="inline-flex items-center gap-2 bg-gold text-white text-xs tracking-widest uppercase px-6 py-3 rounded-full hover:bg-[#8C6239] shadow transition">
             <i class="fas fa-map-marked-alt"></i> Open In Google Maps
         </a>
@@ -514,10 +548,10 @@
                     <img src="NRP07334R.jpg?q=80&w=400" alt="Memory 2" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="h-64 rounded-2xl overflow-hidden shadow border-4 border-white">
-                    <img src="WhatsA.jpeg?q=80&w=400" alt="Memory 3" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="IMG_E5817R.jpg?q=80&w=400" alt="Memory 3" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="h-64 rounded-2xl overflow-hidden shadow border-4 border-white">
-                    <img src="IMG_E5817R.jpg?q=80&w=400" alt="Memory 4" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="WhatsAA.jpg?q=80&w=400" alt="Memory 4" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
             </div>
         </div>
@@ -636,16 +670,41 @@
         }
         setInterval(createFallingItem, 450);
 
+        // Mobile Menu Toggle Function
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times'); // වැහීමේ ලකුණ (X)
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars'); // ඉරි තුනේ ලකුණ
+            }
+        }
+
         function openInvitation() {
+            // Mobile Browser වල Audio play බ්ලොක් නොවෙන්න ක්ලික් එක සිදුවූ සැනින් මුලින්ම සින්දුව Play කරනවා
+            const music = document.getElementById('bgMusic');
+            if(music) {
+                music.play().catch(error => console.log("Audio play blocked by browser setup:", error));
+            }
+
             const splash = document.getElementById('splashScreen');
             if(splash) {
                 splash.classList.add('fade-away');
                 document.body.classList.add('start-main-animations');
             }
-            const music = document.getElementById('bgMusic');
-            if(music) {
-                music.play().catch(error => console.log("Audio play blocked"));
-            }
+       // 🔥 [අලුතින්ම එකතු කරපු කොටස]
+            // ස්ප්ලෑෂ් ස්ක්‍රීන් එක අයින් වුණාට පස්සේ විතරක් නේම්ස් ඇනිමේෂන් එක වොච් කරන්න පටන් ගන්නවා
+            setTimeout(() => {
+                const namesSection = document.getElementById('wedding-names');
+                if (namesSection) {
+                    namesObserver.observe(namesSection);
+                }
+            }, 600); // තත්පර බාගයකට වඩා පොඩි ඩිලේ එකක් දෙන්නේ ස්ක්‍රීන් එක අයින් වෙනකම් ඉන්න
         }
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -693,7 +752,7 @@
             window.location.href = whatsappURL;
         }
 
-        /* --- New ScrollSpy Highlighting Feature --- */
+        /* --- ScrollSpy Highlighting Feature --- */
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll(".nav-link");
 
@@ -702,24 +761,34 @@
             
             sections.forEach((section) => {
                 const sectionTop = section.offsetTop;
-                // Navbar එක sticky හින්දා ඒකේ උසට බැලන්ස් වෙන්න -150px ඔෆ්සෙට් එකක් දැම්මා
                 if (window.scrollY >= sectionTop - 150) {
                     currentSectionId = section.getAttribute("id");
                 }
             });
 
             navLinks.forEach((link) => {
-                // කලින් තිබ්බ ඇක්ටිව් ක්ලාස් අයින් කරනවා
                 link.classList.remove("text-gold", "font-bold", "scale-105");
                 link.classList.add("text-[#544338]");
 
-                // දැනට ස්ක්‍රෝල් වෙලා තියෙන සෙක්ෂන් එකට අදාළ ලින්ක් එක හයිලයිට් කරනවා
                 if (link.getAttribute("href") === `#${currentSectionId}`) {
                     link.classList.remove("text-[#544338]");
                     link.classList.add("text-gold", "font-bold", "scale-105");
                 }
             });
         });
+
+        /* --- Names Scroll Animation Trigger --- */
+        const namesObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('start-name-animations');
+                    namesObserver.unobserve(entry.target); 
+                }
+            });
+        }, { 
+            threshold: 0.25 
+        });
+
     </script>
 </body>
 </html>
