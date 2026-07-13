@@ -338,6 +338,8 @@
     </style>
 </head>
 <body class="relative overflow-x-hidden bg-[#FAF6F0]">
+    <!-- බැග්‍රවුන්ඩ් එකට ලස්සනට ෆොටෝ එකක් සෙට් කරන කෝඩ් එක -->
+<div class="fixed inset-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat opacity-10" style="background-image: url('Screenshot 2.png');"></div>
     <!-- කොන් දෙකට වැටෙන මල් වැල් දෙක -->
     <img src="1 floral-arrangement.png" class="corner-floral left-top" alt="floral-left">
     <img src="1 - 1 floral-arrangement.png" class="corner-floral right-top" alt="floral-right">
@@ -413,19 +415,28 @@
                     <p class="font-semibold text-[#544338]">Loving son of</p>
                     <p class="text-xs">Mr. & Mrs. Chandana</p>
                 </div>
-                <div class="hidden sm:block text-gold text-xl">♥</div>
+                <div class="hidden sm:block text-[#CD1C18] text-xl">♥</div>
                 <div class="text-center md:text-left">
                     <p class="font-semibold text-[#544338]">Loving daughter of</p>
                     <p class="text-xs">Mr. & Mrs. Nandasiri</p>
                 </div>
             </div>
 
-            <p class="text-xs italic text-gray-900 pt-8 leading-relaxed text-center md:text-left max-w-md">
-                Together with their families<br>
-                Request honour of your Presence<br>
-                <strong>Mr./ Mr. & Mrs/ Miss/ Family</strong><br>
-                on the Auspicious Occasion of the marriage of their beloved children.
-            </p>
+           <!-- 1. උඩ පේළි දෙක (pt-8 එක මෙතන විතරක් තියෙන්න ඇරියා) -->
+<p class="text-xs italic text-gray-900 pt-8 leading-relaxed text-center md:text-left max-w-md">
+    Together with their families<br>
+    Request honour of your Presence
+</p>
+
+<!-- 2. මැද නම වැටෙන පේළිය (පේළි අතර ඉඩ අඩු වෙන්න mt-2 ක්ලාස් එක විතරක් දැම්මා) -->
+<p class="font-bold text-[#cb997e] text-lg text-center md:text-left mt-1">
+    <span id="guest-name">Mr./ Mr. & Mrs/ Miss/ Family</span>
+</p>
+
+<!-- 3. යටම පේළිය (මෙහි තිබ්බ pt-8 අයින් කරලා, ලස්සන පරතරයකට mt-2 විතරක් දැම්මා) -->
+<p class="text-xs italic text-gray-900 leading-relaxed text-center md:text-left max-w-md mt-1">
+    on the Auspicious Occasion of the marriage of their beloved children.
+</p>
 
             <div class="pt-4 w-full flex justify-center md:justify-start">
                 <a href="#event" class="text-[10px] tracking-widest uppercase border border-gold text-gold px-6 py-3 rounded-full hover:bg-gold hover:text-black transition duration-300 inline-flex items-center">
@@ -485,6 +496,7 @@
                         </div>
                         <h3 class="font-bold text-lg text-[#544338]">Hotel Kashyapa</h3>
                         <p class="text-sm text-gray-800">Avissawella</p>
+                        <p class="text-base font-medium text-[#cb997e] mt-1">(Queens Hall)</p>
                     </div>
                 </div>
             </div>
@@ -513,17 +525,17 @@
         <div class="grid sm:grid-cols-3 gap-8 relative">
             <div class="space-y-4 flex flex-col items-center">
                 <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
-                    <img src="IMG_E6005.JPG?=80&w=300" alt="Meeting" class="w-full h-full object-cover">
+                    <img src="IMG_E6128.JPG?=80&w=300" alt="Meeting" class="w-full h-full object-cover">
                 </div>
                 <h4 class="font-semibold tracking-wide text-sm uppercase text-gold">First Meeting</h4>
-                <p class="text-xs text-gray-600 max-w-xs">A moment that changed everything.<br><span class="font-medium">2025</span></p>
+                <p class="text-xs text-gray-600 max-w-xs">A moment that changed everything.<br><span class="font-medium"></span></p>
             </div>
             <div class="space-y-4 flex flex-col items-center">
                 <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
                     <img src="NRP07472.JPG" alt="Engagement" class="w-full h-full object-cover">
                 </div>
                 <h4 class="font-semibold tracking-wide text-sm uppercase text-gold">Engagement</h4>
-                <p class="text-xs text-gray-600 max-w-xs">The day we promised forever.<br><span class="font-medium">2026</span></p>
+                <p class="text-xs text-gray-600 max-w-xs">The day we promised forever.<br><span class="font-medium"></span></p>
             </div>
             <div class="space-y-4 flex flex-col items-center">
                 <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
@@ -542,34 +554,41 @@
             <div class="w-24 h-0.5 bg-gold mx-auto mb-12"></div>
             
             <!-- Slideshow එක මැදට වෙන්න ලස්සනට තියෙන Frame එක -->
-            <div class="relative max-w-md mx-auto h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border-8 border-[#bd8242]">
+            <!-- 🔥 [වෙනස් කල ස්ථානය] Gradient Border සඳහා CSS එක්කර ඇත -->
+<div class="relative max-w-md mx-auto h-[400px] md:h-[500px] overflow-hidden shadow-2xl border-8 border-transparent bg-gray-100" style="border-image: linear-gradient(135deg, rgba(203, 153, 126, 1) 0%, rgb(238, 184, 108) 100%) 1;">
                 
                 <!-- Slide 1 -->
                 <div class="wedding-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out z-10">
-                    <img src="IMG_E6128.JPG?q=20&w=400" alt="Memory 1" class="w-full h-full object-cover">
+                    <img src="DSC00855.jpg?q=20&w=400" alt="Memory 1" class="w-full h-full object-cover">
                 </div>
                 
                 <!-- Slide 2 -->
                 <div class="wedding-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
-                    <img src="NRP07334R.jpg?q=80&w=400" alt="Memory 2" class="w-full h-full object-cover">
+                    <img src="DSC00883.jpg?q=80&w=400" alt="Memory 2" class="w-full h-full object-cover">
                 </div>
                 
                 <!-- Slide 3 -->
                 <div class="wedding-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
-                    <img src="WhatsAA.jpg?q=80&w=400" alt="Memory 3" class="w-full h-full object-cover">
+                    <img src="DSC00892.jpg?q=80&w=400" alt="Memory 3" class="w-full h-full object-cover">
                 </div>
                 
                 <!-- Slide 4 -->
                 <div class="wedding-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
-                    <img src="IMG_E5817R.jpg?q=80&w=400" alt="Memory 4" class="w-full h-full object-cover">
+                    <img src="DSC00987.jpg?q=80&w=400" alt="Memory 4" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="wedding-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out z-0">
+                    <img src="DSC00981.jpg?q=80&w=400" alt="Memory 4" class="w-full h-full object-cover">
                 </div>
 
                 <!-- පල්ලෙහායින් වැටෙන චූටි Indicator බින්දු (Dots) ටික -->
-                <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-20">
-                    <span class="gallery-dot w-2 h-2 rounded-full bg-[#cb997e] transition-all duration-300"></span>
-                    <span class="gallery-dot w-2 h-2 rounded-full bg-[#cb997e]/40 transition-all duration-300"></span>
-                    <span class="gallery-dot w-2 h-2 rounded-full bg-[#cb997e]/40 transition-all duration-300"></span>
-                    <span class="gallery-dot w-2 h-2 rounded-full bg-[#cb997e]/40 transition-all duration-300"></span>
+                <div class="absolute bottom-5 left-0 right-0 flex justify-center space-x-2 z-20">
+                    <span class="gallery-dot w-2 h-2 rounded-full bg-[#450707] transition-all duration-300"></span>
+                    <span class="gallery-dot w-2 h-2 rounded-full bg-[#450707]/50 transition-all duration-300"></span>
+                    <span class="gallery-dot w-2 h-2 rounded-full bg-[#450707]/50 transition-all duration-300"></span>
+                    <span class="gallery-dot w-2 h-2 rounded-full bg-[#450707]/50 transition-all duration-300"></span>
+                    <span class="gallery-dot w-2 h-2 rounded-full bg-[#450707]/50 transition-all duration-300"></span>
                 </div>
             </div>
         </div>
@@ -751,18 +770,22 @@
 
             let websiteURL = window.location.origin + window.location.pathname;
 
-            let customizedGreeting = "";
-            if (guestTitle === "Family") {
-                customizedGreeting = `${guestName} & Family`;
-            } else {
-                customizedGreeting = `${guestTitle} ${guestName}`;
-            }
+    let customizedGreeting = "";
+    if (guestTitle === "Family") {
+        customizedGreeting = `${guestName} & Family`;
+    } else {
+        customizedGreeting = `${guestTitle} ${guestName}`;
+    }
 
-            const message = `Hi ${customizedGreeting}! 🌸\n\n` +
-                            `Ape Wedding එකට ඔයාලට ආදරයෙන් ආරාධනා කරනවා! ✉️\n\n` +
-                            `Wedding එකේ සියලුම විස්තර, දින වකවානු සහ Location බලාගන්න අපේ මේ Wedding Website එකට පිවිසෙන්න:\n` +
-                            `👉 ${websiteURL}\n\n` +
-                            `With love, ඔයාලා හැමෝම එනකම් ආදරයෙන් බලන් ඉන්නවා! ❤️`;
+    // ✨ [අලුතින්ම එකතු කල ලයින් එක] - ලින්ක් එක අන්තිමට නම ඔටෝ සෙට් කිරීම
+    const invitationLink = `${websiteURL}?to=${encodeURIComponent(customizedGreeting)}`;
+
+    // 💬 WhatsApp මැසේජ් එක ඇතුළට websiteURL වෙනුවට අලුත් invitationLink එක දමා ඇත
+    const message = `Hi ${customizedGreeting}! 🌸\n\n` +
+        `Ape Wedding එකට ඔයාලට ආදරයෙන් ආරාධනා කරනවා! ✉️\n\n` +
+        `Wedding එකේ සියලුම විස්තර, දින වකවානු සහ Location බලාගන්න අපේ මේ Wedding Website එකට පිවිසෙන්න:\n` +
+        `👉 ${invitationLink}\n\n` +
+        `With love, ඔයාලා හැමෝම එනකම් ආදරයෙන් බලන් ඉන්නවා! ❤️`;
 
             const encodedMessage = encodeURIComponent(message);
             const whatsappURL = `https://wa.me/${guestPhone}?text=${encodedMessage}`;
