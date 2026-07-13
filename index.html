@@ -865,6 +865,17 @@
         // ස්ලයිඩ්ෂෝ එක පටන් ගැන්ම
         startGalleryRotation();
 
+        /* --- Dynamic Guest Name Loader --- */
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestName = urlParams.get('to');
+            
+            if (guestName) {
+                const formattedName = decodeURIComponent(guestName.replace(/\+/g, ' '));
+                document.getElementById('guest-name').innerText = formattedName;
+            }
+        });
+
     </script>
 </body>
 </html>
